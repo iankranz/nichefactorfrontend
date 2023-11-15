@@ -8,4 +8,11 @@ export type Startup = {
   website_url: string
   linkedin_url: string
   created_at: string
+  fire_score: number
+  snooze_score: number
+}
+
+export type StartupLocalState = {
+  fire: boolean
+  snooze: boolean
 }

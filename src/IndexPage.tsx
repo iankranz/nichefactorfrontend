@@ -1,7 +1,7 @@
 import PageLayout from "./PageLayout"
 import { useQuery } from "@tanstack/react-query"
 import { Startup } from "./types"
-import { Link } from "react-router-dom"
+import StartupCard from "./StartupCard"
 
 function IndexPage() {
   const { isPending, isError, data, error } = useQuery({
@@ -24,20 +24,14 @@ function IndexPage() {
 
   return (
     <PageLayout>
-      <h1 className="text-3xl">
-        Startup
-        <br />
-        Niche
-        <br />
-        Factor
-      </h1>
-      <ul>
+      <ul className="flex flex-col gap-4">
         {data.map((startup) => (
           <li key={startup.id}>
-            <Link to={`/startup/${startup.id}`}>{startup.name}</Link>
+            <StartupCard startup={startup} />
           </li>
         ))}
       </ul>
+      <div></div>
     </PageLayout>
   )
 }
