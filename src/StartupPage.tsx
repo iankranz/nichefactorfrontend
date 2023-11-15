@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import PageLayout from "./PageLayout"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import type { Startup, StartupLocalState } from "./types"
@@ -106,8 +106,11 @@ function StartupPage() {
 
   return (
     <PageLayout>
+      <div className="w-full">
+        <Link to="/">&larr;Back</Link>
+      </div>
       <div className="rounded-xl shadow-sm bg-orange-100 p-4 flex flex-col items-center gap-2 w-full">
-        <div className="font-semibold text-6xl">{data.name}</div>
+        <div className="font-semibold text-3xl">{data.name}</div>
         <div>{data.tagline}</div>
         <div className="flex gap-2">
           <div>🔥{data.fire_score}</div>
